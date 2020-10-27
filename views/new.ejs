@@ -11,10 +11,11 @@
     <body>
         <div class="banner">     <h1>New Product Page</h1></div>
         <form action="/products" method="POST">
+            Item: <input type="text" name="item" /><br/>          
             Category: <input type="text" name="category"  /><br/>
-            Product: <input type="text" name="product"  /><br/>
+            Quantity Available: <input type="number" name="qty" /><br/>
             Price: <input type="number" name="price" /><br/>
-            Item: <input type="text" name="item" /><br/>
+           
            <!-- In Stock: <input type="boolean" name="inStock" /><br/> -->
             <!-- SuperUser: <input type="checkbox" name="superUser" /><br/> -->
             <input type="submit" name="" value="Create Product"/>

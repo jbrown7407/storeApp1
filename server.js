@@ -15,7 +15,7 @@ const router= express.Router()
 app.use(express.json());  // ows us to recognize the incoming request as a JSON object. 
 app.use(express.urlencoded({extended: false})); //  recognize the incoming object as strings or arrays.
 app.use(express.static(__dirname + '/public'));  // ???
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 
 const productsController =require('./controllers/products.js')
@@ -26,16 +26,12 @@ app.get('/', (req, res) => {
   res.redirect('/products')
 })
 
-
-
 // mongoose connection logic
 mongoose.connect('mongodb://localhost:27017/storeCRUD', { useNewUrlParser: true, useUnifiedTopology: true } );
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
     
 });
-
-
 
 // importing the product model
 // const Product = require('./models/products.js') RE-ADD????

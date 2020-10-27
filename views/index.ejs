@@ -44,10 +44,15 @@
               <li>
                 <div class="container">   
             Item:  <a href="/products/<%= allProducts[i]._id %>"> 
-                     <%=allProducts[i].item; %> <br></a>
+                     <%=allProducts[i].item; %> </a>      <button>Add to Cart</button> <br>
                  Category:   <%=allProducts[i].category; %> <br>
-                Cost:  $<%=allProducts[i].price; %>.
-               br    <button>Add to Cart</button>
+                Cost:  $<%=allProducts[i].price; %> <br>
+               Quantity Available:  <%=allProducts[i].qty; %> <br>
+                <form action="/products/<%= allProducts[i]._id %> ?_method=PATCH" method="POST">
+                <input type="submit" value="Buy"/> 
+            
+            </form>
+           
                 <form action="/products/<%= allProducts[i].id %>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE"/> <a href="/products/<%=allProducts[i].id %>/edit">Edit</a>
                 </form>

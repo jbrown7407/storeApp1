@@ -1,7 +1,3 @@
-
-
-
-
 const express = require('express');
 const router = express.Router();
 
@@ -50,15 +46,13 @@ const Product = require('../models/products.js')
     //   req.body.userType = false;
     // }
     Product.create(req.body, (error, createdProduct)=>{
-      console.log(req.body)
-      if (error){
-       console.log(error)
+      res.redirect('/')
     
-     }
-      res.redirect('/products');
+     
+   
       // tabTitle: products //partial
-    })
-  })
+    });
+  });
   
   /////////////
   /// edit ////
@@ -76,6 +70,7 @@ const Product = require('../models/products.js')
   // update//
   ///////////
   router.put('/:id', (req, res)=>{
+    console.log("hit")
     // if(req.body.readyToEat === 'on'){
     //     req.body.readyToEat = true;
     // } else {
@@ -107,6 +102,17 @@ const Product = require('../models/products.js')
       res.redirect('/products') //redirect back to Product index
       // tabTitle: products //partial
       // res.send('deleting the fruit')
+    })
+  })
+
+  router.patch('/:id', (req,res) => {
+    console.log("buy function")
+    Product.findByIdAndUpdate(req.params.id, {$inc: {'qty': -1}}, (err) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.redirect(`/products/${req.params.id}`)
+      }
     })
   })
 

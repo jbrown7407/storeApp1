@@ -124,7 +124,13 @@ form:-ms-input-placeholder {
 .input {
 
 }
-
+canvas{
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+  float:right;
+  display: inline-block
+}
 
 body {margin:0;}
 

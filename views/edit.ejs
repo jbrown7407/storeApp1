@@ -13,19 +13,18 @@
     <body>
        <div class="container">
         <div class="banner">     <h1>Edit Log</h1></div>
-        <form action="/products/<%= products.item%>?_method=POST" method="POST">
-            Name: <input type="text" name="product" value="<% products.name %>" /><br/>
-            Product: <input type="text" name="product" /><br/>
-            Product: <input type="number" name="product" value= "<% products.price %>" /><br/>
-            <!-- SuperUser: <input type="checkbox" name="superUser" /><br/> -->
-         
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="category..." value="<%= products.category %>"/>
-             
-                <input type="submit" name="" value="Submit Changes"/>
-            </form>
-           
+ 
+<!-- xxxxxxxxxxxxxxxx -->
+x       
+<form action="/products/<%=product.id%>?_method=PUT" method="POST">
+            <!--  NOTE: the form is pre-populated with values for the server-->
+            Name: <input type="text" name="item" value="<%=product.item%>"/><br/>
+            Price: <input type="number" name="price" value="<%=product.price%>"><br>
+            Category: <input type="string" name="category" value="<%=product.category%>"><br>
+            Quantity: <input type="number" name="qty" value="<%=product.qty%>"><br>
+            <input type="submit" name="" value="Submit Changes"/>
         </form>
     </div>    
     </body>
 </html>
+
