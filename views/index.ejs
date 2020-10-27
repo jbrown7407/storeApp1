@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New PRODUCT PAGE</title>
+    </head>
+    <div class="container">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+    <link rel="stylesheet" href="/style.css">
+   
+    </head>
+    <body>
+        <br>
+   
+       <div class="navbarTop">
+       <h2> <a href="/products/">Home</a>
+        <a href="#news">Contacts</a>
+        <a href="#contact">Preferences</a>
+        <a href="/products/boards">Checkout</a></h2>
+       
+       </div>
+
+        <div class="navbar">
+
+      <br>
+            <!-- <form action="/products" method="POST" >
+              
+                Product: (instead of name) <input type="text" name="product" /><br/>
+                Price:  <input type="number" name="price"  /><br/>
+                Category:         <input type="text" name="category" /><br/>
+                <!-- In Stock?:         <input type="text" name="product" /><br/> -->
+                <!-- SuperUser: <input type="checkbox" name="superUser" /><br/> -->
+        <span class="highlighter">    <input type="submit" name="" value="Order"/></span>     <br> -->
+    
+          </div>
+      
+ <br>
+      
+       
+
+<div>
+    <a href="/products/new">Add product to inventory</a> 
+         <ul>
+            <% for(let i = 0; i < allProducts.length; i++){ %>
+              <li>
+                The
+                <a href="/products/<%=allProducts[i].product %>"> </a> <br>
+                    <%=allProducts[i].category; %> <br>
+               
+                Cost:  <%=allProducts[i].price; %>.
+                
+            
+                <form action="/products/<%= allProducts[i].id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE"/>
+                </form>
+                <a href="/products/<%=allProducts[i].id %>/edit">Edit</a>
+            </li>
+            <% } %>
+        </ul>
+
+        
+    </div>
+       
+    </body>
+</html>
