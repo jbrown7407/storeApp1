@@ -22,6 +22,12 @@ const productsController =require('./controllers/products.js')
 app.use('/products',productsController)
 // app.use('/users',usersController)
 
+app.get('/', (req, res) => {
+  res.redirect('/products')
+})
+
+
+
 // mongoose connection logic
 mongoose.connect('mongodb://localhost:27017/storeCRUD', { useNewUrlParser: true, useUnifiedTopology: true } );
 mongoose.connection.once('open', ()=> {

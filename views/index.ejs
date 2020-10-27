@@ -14,31 +14,28 @@
         <br>
    
        <div class="navbarTop">
-       <h2> <a href="/products/">Home</a>
-        <a href="#news">Contacts</a>
-        <a href="#contact">Preferences</a>
-        <a href="/products/boards">Checkout</a></h2>
+        <button style="float:right">  <a href="/products/new">Add to INV</a> </button>
+   
+        <button style="float:left"><a href="/products/boards">Check Out</a></button>
        
        </div>
 
         <div class="navbar">
 
       <br>
-            <!-- <form action="/products" method="POST" >
-              
-                Product: (instead of name) <input type="text" name="product" /><br/>
-                Price:  <input type="number" name="price"  /><br/>
-                Category:         <input type="text" name="category" /><br/>
+            <form action="/products" method="POST" >
+           Your Cart: TOTAL COST HERE   <br>
+           Items: # of ITEMS HERE
+        
+             
                 <!-- In Stock?:         <input type="text" name="product" /><br/> -->
-                <!-- SuperUser: <input type="checkbox" name="superUser" /><br/> -->
+                <!-- SuperUser: <input type="checkbox" name="superUser" /><br/>
         <span class="highlighter">    <input type="submit" name="" value="Order"/></span>     <br> -->
     
           </div>
       
  <br>
       
-       
-
 <div class="container">
     <a href="/products/new">Add product to inventory</a> 
          <ul>
@@ -46,11 +43,11 @@
             <% for(let i = 0; i < allProducts.length; i++){ %>
               <li>
                 <div class="container">   
-            Item:    <a href="/products/<%=allProducts[i].item %>">
+            Item:  <a href="/products/<%= allProducts[i]._id %>"> 
                      <%=allProducts[i].item; %> <br></a>
                  Category:   <%=allProducts[i].category; %> <br>
                 Cost:  $<%=allProducts[i].price; %>.
-           
+               br    <button>Add to Cart</button>
                 <form action="/products/<%= allProducts[i].id %>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE"/> <a href="/products/<%=allProducts[i].id %>/edit">Edit</a>
                 </form>

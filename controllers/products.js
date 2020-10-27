@@ -10,20 +10,18 @@ const Product = require('../models/products.js')
 ///////////
 // INDEX //
 ///////////
-router.get('/', (req, res)=>{
-    Product.find({}, (error, allProducts)=>{
-      res.render('index.ejs', {
-        allProducts: allProducts,
-        // tabTitle: index //partial
-        })
-    })
-  })
+
   
   router.get('/', (req, res)=>{   //INITIAL LOGIN
-      res.redirect('/products')  //    /login
-      // tabTitle: login
+      // res.redirect('/products')  //    /login
+      // tabTitle: login\\
+      Product.find({}, (error, allProducts)=>{
+      res.render('index.ejs',{
+        allProducts: allProducts
+      })
   })
-  
+  })
+
   router.get('/boards', (req, res)=>{
     Product.find({}, (error, allProducts)=>{
       res.render('/boards', {

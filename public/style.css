@@ -15,8 +15,8 @@ h2 {
     background-color:rgb(247, 15, 15);
     border: 3px solid black;
     color: white;
-    height: 36px;
-    font-size: 48px;
+    height: 24px;
+    font-size: 36px;
     border-radius: 10px;
     margin-top: 0px;
     padding: 5px;
@@ -130,20 +130,22 @@ body {margin:0;}
 
 .navbar {
   overflow: hidden;
-  background-color:rgb(247, 15, 15);
+  background-color:rgb(255, 128, 128);
   color: white;
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
+  z-index: 100;
 }
 
 .navbarTop {
     overflow: hidden;
-    background-color:rgb(247, 15, 15);
+    background-color:rgb(255, 128, 128);
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 100;
   }
 
 .navbar a {
