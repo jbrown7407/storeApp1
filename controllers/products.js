@@ -5,12 +5,12 @@
 const express = require('express');
 const router = express.Router();
 
-// const Product = require('../models/products.js') RE-ADD?
+const Product = require('../models/products.js')
 // ROUTES //
 ///////////
 // INDEX //
 ///////////
-router.get('/products', (req, res)=>{
+router.get('/', (req, res)=>{
     Product.find({}, (error, allProducts)=>{
       res.render('index.ejs', {
         allProducts: allProducts,
@@ -20,13 +20,13 @@ router.get('/products', (req, res)=>{
   })
   
   router.get('/', (req, res)=>{   //INITIAL LOGIN
-      res.redirect('/products/login')
+      res.redirect('/products')  //    /login
       // tabTitle: login
   })
   
-  router.get('/products/boards', (req, res)=>{
+  router.get('/boards', (req, res)=>{
     Product.find({}, (error, allProducts)=>{
-      res.render('/products/boards', {
+      res.render('/boards', {
        products: allProducts,
         // tabTitle: boards //partial
     })
@@ -35,7 +35,7 @@ router.get('/products', (req, res)=>{
   ///////
   //NEW//
   ///////
-  router.get('/products/new', (req, res) => {
+  router.get('/new', (req, res) => {
     res.render('new.ejs'), {
     // tabTitle: new //partial
     //res.send('new') send string of new to test
@@ -45,7 +45,7 @@ router.get('/products', (req, res)=>{
   //////////
   //CREATE//
   ///post///
-  router.post('/products/', (req, res)=>{    //Post is an express method to POST
+  router.post('/', (req, res)=>{    //Post is an express method to POST
     // if(req.body.userType === 'on'){ //if checked, req.body.readyToEat is set to 'on'
     //   req.body.userType = true;
     // } else { //if not checked, req.body.readyToEat is undefined
@@ -65,7 +65,7 @@ router.get('/products', (req, res)=>{
   /////////////
   /// edit ////
   /////////////
-  router.get('/products/:id/edit', (req, res)=>{
+  router.get('/:id/edit', (req, res)=>{
     Product.findById(req.params.id, (err, foundProduct)=>{ //find the Product
         res.render('edit.ejs', 
           { product: foundProduct, //pass in found product 
@@ -77,7 +77,7 @@ router.get('/products', (req, res)=>{
   ///////////
   // update//
   ///////////
-  router.put('/products/:id', (req, res)=>{
+  router.put('/:id', (req, res)=>{
     // if(req.body.readyToEat === 'on'){
     //     req.body.readyToEat = true;
     // } else {
@@ -92,7 +92,7 @@ router.get('/products', (req, res)=>{
   //////////
   // show///
   //////////
-  router.get('/products/:id', (req, res) =>{
+  router.get('/:id', (req, res) =>{
     Product.findById(req.params.id, (err, foundProduct)=>{
       res.render('show.ejs', {
         // console.log(foundProduct)
@@ -104,7 +104,7 @@ router.get('/products', (req, res)=>{
   
   ////////////
   // delete //
-  router.delete('/products/:id', (req, res) => {
+  router.delete('/:id', (req, res) => {
     Product.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (err, data)=>{
       res.redirect('/products') //redirect back to Product index
       // tabTitle: products //partial

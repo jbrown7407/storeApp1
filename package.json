@@ -1,5 +1,5 @@
 {
-  "name": "storeCRUD",
+  "name": "shoppyCRUD",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,13 @@
     "mongoose": "^5.10.11"
   },
   "devDependencies": {},
-  "description": "[![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)"
+  "description": "[![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbrown7407/storeApp1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jbrown7407/storeApp1/issues"
+  },
+  "homepage": "https://github.com/jbrown7407/storeApp1#readme"
 }

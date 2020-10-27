@@ -18,6 +18,10 @@ app.use(express.static(__dirname + '/public'));  // ???
 app.use(methodOverride('_method'))
 
 
+const productsController =require('./controllers/products.js')
+app.use('/products',productsController)
+// app.use('/users',usersController)
+
 // mongoose connection logic
 mongoose.connect('mongodb://localhost:27017/storeCRUD', { useNewUrlParser: true, useUnifiedTopology: true } );
 mongoose.connection.once('open', ()=> {
@@ -25,9 +29,6 @@ mongoose.connection.once('open', ()=> {
     
 });
 
-const productsController =require('./controllers/products.js')
-app.use('/products',productsController)
-// app.use('/users',usersController)
 
 
 // importing the product model
